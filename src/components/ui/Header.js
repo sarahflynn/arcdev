@@ -6,16 +6,13 @@ import Typography from "@material-ui/core/Typography";
 import useScrollTrigger from "@material-ui/core/useScrollTrigger";
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-  },
-  title: {
-    flexGrow: 1,
+  toolbarMargin: {
+    ...theme.mixins.toolbar,
   },
 }));
 
 const ElevationScroll = (props) => {
-  const { children} = props;
+  const { children } = props;
 
   const trigger = useScrollTrigger({
     disableHysteresis: true,
@@ -31,16 +28,17 @@ export default function Header(props) {
   const classes = useStyles();
 
   return (
-    <div className={classes.root}>
+    <>
       <ElevationScroll>
         <AppBar position="fixed">
           <Toolbar>
-            <Typography variant="h6" className={classes.title}>
+            <Typography variant="h3" className={classes.title}>
               Arc Development
             </Typography>
           </Toolbar>
         </AppBar>
       </ElevationScroll>
-    </div>
+      <div className={classes.toolbarMargin} />
+    </>
   );
 }
