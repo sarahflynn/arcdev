@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
 
 const ElevationScroll = (props) => {
   const { children} = props;
-  
+
   const trigger = useScrollTrigger({
     disableHysteresis: true,
     threshold: 0,
