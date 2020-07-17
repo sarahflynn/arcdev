@@ -1,7 +1,8 @@
-import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
+import React, { useState, useEffect } from "react";
 import AppBar from "@material-ui/core/AppBar";
 import Button from "@material-ui/core/Button";
+import { Link } from "react-router-dom";
+import { makeStyles } from "@material-ui/core/styles";
 import Tab from "@material-ui/core/Tab";
 import Tabs from "@material-ui/core/Tabs";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -12,10 +13,16 @@ import logo from "../../assets/logo.svg";
 const useStyles = makeStyles((theme) => ({
   toolbarMargin: {
     ...theme.mixins.toolbar,
-    marginBottom: "2em",
+    marginBottom: "3em",
   },
   logo: {
-    height: "7em",
+    height: "8em",
+  },
+  logoContainer: {
+    padding: 0,
+    "&:hover": {
+      backgroundColor: "transparent",
+    },
   },
   tabContainer: {
     marginLeft: "auto",
@@ -49,24 +56,91 @@ const ElevationScroll = (props) => {
 
 export default function Header(props) {
   const classes = useStyles();
+  const [value, setValue] = useState(0);
+
+  const tabOrder = [
+    "/",
+    "/services",
+    "/revolution",
+    "/about",
+    "/contact",
+    "/estimate",
+  ];
+
+  const tabNumber = tabOrder.indexOf(window.location.pathname);
+
+  useEffect(() => {
+    if (value !== tabNumber) {
+      setValue(tabNumber);
+    }
+  }, [tabNumber, value]);
+
+  const handleChange = (e, value) => {
+    setValue(value);
+  };
 
   return (
     <>
       <ElevationScroll>
         <AppBar position="fixed">
           <Toolbar disableGutters>
-            <img src={logo} alt="Arc Development company logo" />
-            <Tabs className={classes.tabContainer}>
-              <Tab label="Home" className={classes.tab} />
-              <Tab label="Services" className={classes.tab} />
-              <Tab label="The Revolution" className={classes.tab} />
-              <Tab label="About Us" className={classes.tab} />
-              <Tab label="Contact Us" className={classes.tab} />
+            <Button
+              component={Link}
+              to="/"
+              className={classes.logoContainer}
+              onClick={() => setValue(0)}
+              disableRipple
+            >
+              <img
+                src={logo}
+                alt="Arc Development company logo"
+                className={classes.logo}
+              />
+            </Button>
+            <Tabs
+              value={value}
+              onChange={handleChange}
+              className={classes.tabContainer}
+              indicatorColor="primary"
+            >
+              <Tab
+                label="Home"
+                className={classes.tab}
+                component={Link}
+                to="/"
+              />
+              <Tab
+                label="Services"
+                className={classes.tab}
+                component={Link}
+                to="/services"
+              />
+              <Tab
+                label="The Revolution"
+                className={classes.tab}
+                component={Link}
+                to="/revolution"
+              />
+              <Tab
+                label="About Us"
+                className={classes.tab}
+                component={Link}
+                to="/about"
+              />
+              <Tab
+                label="Contact Us"
+                className={classes.tab}
+                component={Link}
+                to="/contact"
+              />
             </Tabs>
             <Button
+              onClick={() => setValue(5)}
               variant="contained"
               color="secondary"
               className={classes.button}
+              component={Link}
+              to="/estimate"
             >
               Free Estimate
             </Button>
