@@ -3,6 +3,8 @@ import AppBar from "@material-ui/core/AppBar";
 import Button from "@material-ui/core/Button";
 import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
+import Menu from "@material-ui/core/Menu";
+import MenuItem from "@material-ui/core/MenuItem";
 import Tab from "@material-ui/core/Tab";
 import Tabs from "@material-ui/core/Tabs";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -39,6 +41,18 @@ const useStyles = makeStyles((theme) => ({
     marginRight: "25px",
     height: "45px",
   },
+  menu: {
+    backgroundColor: theme.palette.common.blue,
+    color: "white",
+    borderRadius: 0,
+  },
+  menuItem: {
+    ...theme.typography.tab,
+    opacity: 0.7,
+    "&:hover": {
+      opacity: 1,
+    },
+  },
 }));
 
 const ElevationScroll = (props) => {
@@ -57,26 +71,73 @@ const ElevationScroll = (props) => {
 export default function Header(props) {
   const classes = useStyles();
   const [value, setValue] = useState(0);
+  const [anchorEl, setAnchorEl] = useState(null);
+  const [open, setOpen] = useState(false);
+  const [selectedIndex, setSelectedIndex] = useState(0);
 
-  const tabOrder = [
-    "/",
-    "/services",
-    "/revolution",
-    "/about",
-    "/contact",
-    "/estimate",
+  const menuOptions = [
+    { name: "Services", link: "/services" },
+    { name: "Custom Software Development", link: "/customsoftware" },
+    { name: "Mobile App Development", link: "/mobileapps" },
+    { name: "Website Development", link: "/websites" },
   ];
 
-  const tabNumber = tabOrder.indexOf(window.location.pathname);
-
   useEffect(() => {
-    if (value !== tabNumber) {
-      setValue(tabNumber);
+    switch (window.location.pathname) {
+      case "/":
+        if (value !== 0) setValue(0);
+        break;
+      case "/services":
+        if (value !== 1) setValue(1);
+        setSelectedIndex(0);
+        break;
+      case "/customsoftware":
+        if (value !== 1) setValue(1);
+        setSelectedIndex(1);
+        break;
+      case "/mobileapps":
+        if (value !== 1) setValue(1);
+        setSelectedIndex(2);
+        break;
+      case "/websites":
+        if (value !== 1) setValue(1);
+        setSelectedIndex(3);
+        break;
+      case "/revolution":
+        if (value !== 2) setValue(2);
+        break;
+      case "/about":
+        if (value !== 3) setValue(3);
+        break;
+      case "/contact":
+        if (value !== 4) setValue(4);
+        break;
+      case "/estimate":
+        if (value !== 5) setValue(5);
+        break;
+      default:
+        break;
     }
-  }, [tabNumber, value]);
+  }, [value, selectedIndex]);
 
   const handleChange = (e, value) => {
     setValue(value);
+  };
+
+  const handleClick = (e) => {
+    setAnchorEl(e.currentTarget);
+    setOpen(true);
+  };
+
+  const handleMenuItemClick = (e, i) => {
+    setAnchorEl(null);
+    setOpen(false);
+    setSelectedIndex(i);
+  };
+
+  const handleClose = (e) => {
+    setAnchorEl(null);
+    setOpen(false);
   };
 
   return (
@@ -110,9 +171,12 @@ export default function Header(props) {
                 to="/"
               />
               <Tab
+                aria-owns={anchorEl ? "simple-menu" : undefined}
+                aria-haspopup={anchorEl ? true : undefined}
                 label="Services"
                 className={classes.tab}
                 component={Link}
+                onMouseOver={(e) => handleClick(e)}
                 to="/services"
               />
               <Tab
@@ -144,6 +208,34 @@ export default function Header(props) {
             >
               Free Estimate
             </Button>
+            <Menu
+              id="simple-menu"
+              anchorEl={anchorEl}
+              open={open}
+              onClose={handleClose}
+              MenuListProps={{ onMouseLeave: handleClose }}
+              classes={{ paper: classes.menu }}
+              elevation={0}
+            >
+              {menuOptions.map((option, i) => {
+                return (
+                  <MenuItem
+                    key={option}
+                    onClick={(e, i) => {
+                      handleMenuItemClick(e, i);
+                      setValue(1);
+                      handleClose();
+                    }}
+                    selected={i === selectedIndex && value === 1}
+                    component={Link}
+                    to={option.link}
+                    classes={{ root: classes.menuItem }}
+                  >
+                    {option.name}
+                  </MenuItem>
+                );
+              })}
+            </Menu>
           </Toolbar>
         </AppBar>
       </ElevationScroll>
