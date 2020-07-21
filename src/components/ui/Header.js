@@ -62,9 +62,10 @@ const useStyles = makeStyles((theme) => ({
     height: "45px",
   },
   menu: {
-    backgroundColor: theme.palette.common.blue,
+    backgroundColor: theme.palette.common.orange,
     color: "white",
     borderRadius: 0,
+    zIndex: 1302,
   },
   menuItem: {
     ...theme.typography.tab,
@@ -85,7 +86,6 @@ const useStyles = makeStyles((theme) => ({
   },
   drawer: {
     backgroundColor: theme.palette.common.blue,
-    zIndex: theme.zIndex.appBar - 1,
   },
   drawerItem: {
     color: "white",
@@ -96,6 +96,9 @@ const useStyles = makeStyles((theme) => ({
   },
   drawerItemEstimate: {
     backgroundColor: theme.palette.common.orange,
+  },
+  appBar: {
+    zIndex: 1301,
   },
 }));
 
