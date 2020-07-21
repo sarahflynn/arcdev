@@ -62,10 +62,9 @@ const useStyles = makeStyles((theme) => ({
     height: "45px",
   },
   menu: {
-    backgroundColor: theme.palette.common.orange,
+    backgroundColor: theme.palette.common.blue,
     color: "white",
     borderRadius: 0,
-    zIndex: 1302,
   },
   menuItem: {
     ...theme.typography.tab,
@@ -92,7 +91,9 @@ const useStyles = makeStyles((theme) => ({
     opacity: 0.7,
   },
   drawerItemSelected: {
-    opacity: 1,
+    "& .MuiListItemText-root": {
+      opacity: 1,
+    },
   },
   drawerItemEstimate: {
     backgroundColor: theme.palette.common.orange,
@@ -238,6 +239,7 @@ export default function Header(props) {
         MenuListProps={{ onMouseLeave: handleClose }}
         classes={{ paper: classes.menu }}
         elevation={0}
+        style={{ zIndex: 1302 }}
         keepMounted
       >
         {menuOptions.map((option, i) => {
@@ -287,20 +289,18 @@ export default function Header(props) {
               to={route.link}
               disableTypography
               selected={value === route.activeIndex}
+              classes={{ selected: classes.drawerItemSelected }}
             >
-              <ListItemText
-                className={
-                  value === route.activeIndex
-                    ? [classes.drawerItem, classes.drawerItemSelected]
-                    : classes.drawerItem
-                }
-              >
+              <ListItemText className={classes.drawerItem}>
                 {route.name}
               </ListItemText>
             </ListItem>
           ))}
           <ListItem
-            className={classes.drawerItemEstimate}
+            classes={{
+              root: classes.drawerItemEstimate,
+              selected: classes.drawerItemSelected,
+            }}
             divider
             button
             onClick={() => {
@@ -312,15 +312,7 @@ export default function Header(props) {
             disableTypography
             selected={value === 5}
           >
-            <ListItemText
-              className={
-                value === 5
-                  ? [classes.drawerItem, classes.drawerItemSelected]
-                  : classes.drawerItem
-              }
-            >
-              Estimate
-            </ListItemText>
+            <ListItemText className={classes.drawerItem}>Estimate</ListItemText>
           </ListItem>
         </List>
       </SwipeableDrawer>
