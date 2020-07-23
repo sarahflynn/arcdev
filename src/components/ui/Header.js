@@ -123,10 +123,8 @@ export default function Header(props) {
   const iOS = process.browser && /iPad|iPhone|iPod/.test(navigator.userAgent);
 
   const [drawerOpen, setDrawerOpen] = useState(false);
-  const [value, setValue] = useState(0);
   const [anchorEl, setAnchorEl] = useState(null);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [selectedIndex, setSelectedIndex] = useState(0);
 
   const routes = [
     { name: "Home", link: "/", activeIndex: 0 },
@@ -166,6 +164,8 @@ export default function Header(props) {
   ];
 
   useEffect(() => {
+    const { value, setValue, selectedIndex, setSelectedIndex } = props;
+
     [...routes, ...menuOptions].forEach((route) => {
       switch (window.location.pathname) {
         case `${route.link}`:
@@ -178,10 +178,10 @@ export default function Header(props) {
           break;
       }
     });
-  }, [value, selectedIndex, routes, menuOptions]);
+  }, [routes, menuOptions, props]);
 
   const handleChange = (e, value) => {
-    setValue(value);
+    props.setValue(value);
   };
 
   const handleClick = (e) => {
@@ -192,7 +192,7 @@ export default function Header(props) {
   const handleMenuItemClick = (e, i) => {
     setAnchorEl(null);
     setMenuOpen(false);
-    setSelectedIndex(i);
+    props.setSelectedIndex(i);
   };
 
   const handleClose = (e) => {
@@ -203,7 +203,7 @@ export default function Header(props) {
   const tabs = (
     <>
       <Tabs
-        value={value}
+        value={props.value}
         onChange={handleChange}
         className={classes.tabContainer}
         indicatorColor="primary"
@@ -222,7 +222,7 @@ export default function Header(props) {
         ))}
       </Tabs>
       <Button
-        onClick={() => setValue(5)}
+        onClick={() => props.setValue(5)}
         variant="contained"
         color="secondary"
         className={classes.button}
@@ -248,10 +248,10 @@ export default function Header(props) {
               key={option.selectedIndex}
               onClick={(e, i) => {
                 handleMenuItemClick(e, i);
-                setValue(1);
+                props.setValue(1);
                 handleClose();
               }}
-              selected={i === selectedIndex && value === 1}
+              selected={i === props.selectedIndex && props.value === 1}
               component={Link}
               to={option.link}
               classes={{ root: classes.menuItem }}
@@ -283,12 +283,12 @@ export default function Header(props) {
               button
               onClick={() => {
                 setDrawerOpen(false);
-                setValue(route.activeIndex);
+                props.setValue(route.activeIndex);
               }}
               component={Link}
               to={route.link}
               disableTypography
-              selected={value === route.activeIndex}
+              selected={props.value === route.activeIndex}
               classes={{ selected: classes.drawerItemSelected }}
             >
               <ListItemText className={classes.drawerItem}>
@@ -305,12 +305,12 @@ export default function Header(props) {
             button
             onClick={() => {
               setDrawerOpen(false);
-              setValue(5);
+              props.setValue(5);
             }}
             component={Link}
             to="/estimate"
             disableTypography
-            selected={value === 5}
+            selected={props.value === 5}
           >
             <ListItemText className={classes.drawerItem}>Estimate</ListItemText>
           </ListItem>
@@ -335,7 +335,7 @@ export default function Header(props) {
               component={Link}
               to="/"
               className={classes.logoContainer}
-              onClick={() => setValue(0)}
+              onClick={() => props.setValue(0)}
               disableRipple
             >
               <img
