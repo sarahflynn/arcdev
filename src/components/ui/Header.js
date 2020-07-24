@@ -178,6 +178,9 @@ export default function Header(props) {
             setSelectedIndex(route.selectedIndex);
           }
           break;
+        case "/estimate":
+          props.setValue(5);
+          break;
         default:
           break;
       }

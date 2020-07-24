@@ -10,6 +10,8 @@ import {
   useMediaQuery,
 } from "@material-ui/core";
 
+import CallToAction from "./ui/CallToAction";
+
 import animationData from "../animations/landinganimation/data";
 import ButtonArrow from "./ui/ButtonArrow";
 import customSoftwareIcon from "../assets/Custom Software Icon.svg";
@@ -387,7 +389,7 @@ export default function LandingPage(props) {
             >
               <Grid container direction="column">
                 <Typography style={{ color: "white" }} variant="h2">
-                  Say hello!
+                  Say hello!{" "}
                   <span role="img" aria-label="waving hand">
                     🤗
                   </span>
@@ -408,6 +410,10 @@ export default function LandingPage(props) {
           </Grid>
           <div className={classes.infoBackground} />
         </Grid>
+      </Grid>
+      {/*-----Call to Action Block------*/}
+      <Grid item>
+        <CallToAction />
       </Grid>
     </Grid>
   );
