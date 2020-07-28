@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
-import { Button, Grid, Typography, useMediaQuery } from "@material-ui/core/Grid";
+import { Button, Grid, Typography, useMediaQuery } from "@material-ui/core";
 
 import ButtonArrow from "./ui/ButtonArrow";
 import customSoftwareIcon from "../assets/Custom Software Icon.svg";
