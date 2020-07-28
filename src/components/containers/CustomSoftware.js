@@ -11,20 +11,19 @@ import {
 } from "@material-ui/core";
 
 import {
+  automationAnimation,
   backArrow,
   cash,
+  documentsAnimation,
   forwardArrow,
   lightbulb,
   roots,
+  scaleAnimation,
   stopwatch,
-} from "../assets/index";
+  uxAnimation,
+} from "../../assets/index";
 
-import automationAnimation from "../animations/automationAnimation/data.json";
-import documentsAnimation from "../animations/documentsAnimation/data";
-import scaleAnimation from "../animations/scaleAnimation/data.json";
-import uxAnimation from "../animations/uxAnimation/data";
-
-import CallToAction from "./ui/CallToAction";
+import { CallToAction } from "../index";
 
 const useStyles = makeStyles((theme) => ({
   arrowContainer: {
@@ -56,7 +55,7 @@ export default function CustomSoftware(props) {
 
   const documentsOptions = {
     loop: true,
-    autoplay: false,
+    autoplay: true,
     animationData: documentsAnimation,
     rendererSettings: {
       preserveAspectRatio: "xMidYMid slice",
@@ -65,7 +64,7 @@ export default function CustomSoftware(props) {
 
   const scaleOptions = {
     loop: true,
-    autoplay: false,
+    autoplay: true,
     animationData: scaleAnimation,
     rendererSettings: {
       preserveAspectRatio: "xMidYMid slice",
@@ -74,7 +73,7 @@ export default function CustomSoftware(props) {
 
   const automationOptions = {
     loop: true,
-    autoplay: false,
+    autoplay: true,
     animationData: automationAnimation,
     rendererSettings: {
       preserveAspectRatio: "xMidYMid slice",
@@ -83,7 +82,7 @@ export default function CustomSoftware(props) {
 
   const uxOptions = {
     loop: true,
-    autoplay: false,
+    autoplay: true,
     animationData: uxAnimation,
     rendererSettings: {
       preserveAspectRatio: "xMidYMid slice",

@@ -2,14 +2,16 @@ import React, { useState } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { ThemeProvider } from "@material-ui/styles";
 
-import CustomSoftware from "./CustomSoftware";
-import Footer from "./ui/Footer";
-import Header from "./ui/Header";
-import LandingPage from "./LandingPage";
-import MobileApps from "./MobileApps";
-import Services from "./Services";
-import theme from "./ui/Theme";
-import Websites from "./Websites";
+import {
+  CustomSoftware,
+  Footer,
+  Header,
+  LandingPage,
+  MobileApps,
+  Services,
+  theme,
+  Websites,
+} from "./index";
 
 function App() {
   const [value, setValue] = useState(0);

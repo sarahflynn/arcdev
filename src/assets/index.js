@@ -1,3 +1,4 @@
+// Images
 export { default as access } from "./img/extendAccess.svg";
 export { default as analytics } from "./img/analytics.svg";
 export { default as backArrow } from "./img/backArrow.svg";
@@ -23,3 +24,12 @@ export { default as stopwatch } from "./img/stopwatch.svg";
 export { default as swiss } from "./img/swissKnife.svg";
 export { default as twitter } from "./img/twitter.svg";
 export { default as websitesIcon } from "./img/websiteIcon.svg";
+
+// Animations
+export { default as automationAnimation } from "./animations/automationAnimation/data.json";
+export { default as documentsAnimation } from "./animations/documentsAnimation/data";
+export { default as integrationAnimation } from "./animations/integrationAnimation/data.json";
+export { default as landingAnimation } from "./animations/landinganimation/data";
+export { default as scaleAnimation } from "./animations/scaleAnimation/data.json";
+export { default as uxAnimation } from "./animations/uxAnimation/data";
+

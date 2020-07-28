@@ -11,18 +11,16 @@ import {
   useMediaQuery,
 } from "@material-ui/core";
 
-import CallToAction from "./ui/CallToAction";
-
 import {
   customSoftwareIcon,
   infoBackground,
+  landingAnimation,
   mobileAppsIcon,
   revolutionBackground,
   websitesIcon,
-} from "../assets/index";
+} from "../../assets/index";
 
-import animationData from "../animations/landinganimation/data";
-import ButtonArrow from "./ui/ButtonArrow";
+import { ButtonArrow, CallToAction } from "../index";
 
 const useStyles = makeStyles((theme) => ({
   animation: {
@@ -140,7 +138,7 @@ export default function LandingPage(props) {
   const defaultOptions = {
     loop: true,
     autoplay: true,
-    animationData: animationData,
+    animationData: landingAnimation,
     rendererSettings: {
       preserveAspectRatio: "xMidYMid slice",
     },

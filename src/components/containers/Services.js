@@ -7,9 +7,9 @@ import {
   customSoftwareIcon,
   mobileAppsIcon,
   websitesIcon,
-} from "../assets/index";
+} from "../../assets/index";
 
-import ButtonArrow from "./ui/ButtonArrow";
+import { ButtonArrow } from "../index";
 
 const useStyles = makeStyles((theme) => ({
   icon: {

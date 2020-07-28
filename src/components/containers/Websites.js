@@ -9,8 +9,6 @@ import {
   useMediaQuery,
 } from "@material-ui/core";
 
-import CallToAction from "./ui/CallToAction";
-
 import {
   analytics,
   backArrow,
@@ -18,7 +16,9 @@ import {
   forwardArrow,
   outreach,
   seo,
-} from "../assets/index";
+} from "../../assets/index";
+
+import { CallToAction } from "../index";
 
 const useStyles = makeStyles((theme) => ({
   heading: {
