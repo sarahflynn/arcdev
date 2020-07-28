@@ -92,11 +92,13 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.common.blue,
   },
   drawerItem: {
-    color: "white",
-    opacity: 0.7,
+    "& .MuiListItemText-primary": {
+      color: "white",
+      opacity: 0.7,
+    },
   },
   drawerItemSelected: {
-    "& .MuiListItemText-root": {
+    "& .MuiListItemText-primary": {
       opacity: 1,
     },
   },
