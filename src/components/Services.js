@@ -3,10 +3,13 @@ import { Link } from "react-router-dom";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import { Button, Grid, Typography, useMediaQuery } from "@material-ui/core";
 
+import {
+  customSoftwareIcon,
+  mobileAppsIcon,
+  websitesIcon,
+} from "../assets/index";
+
 import ButtonArrow from "./ui/ButtonArrow";
-import customSoftwareIcon from "../assets/Custom Software Icon.svg";
-import mobileAppsIcon from "../assets/mobileIcon.svg";
-import websitesIcon from "../assets/websiteIcon.svg";
 
 const useStyles = makeStyles((theme) => ({
   icon: {

@@ -10,12 +10,14 @@ import {
   useMediaQuery,
 } from "@material-ui/core";
 
-import backArrow from "../assets/backArrow.svg";
-import cash from "../assets/cash.svg";
-import forwardArrow from "../assets/forwardArrow.svg";
-import lightbulb from "../assets/bulb.svg";
-import roots from "../assets/root.svg";
-import stopwatch from "../assets/stopwatch.svg";
+import {
+  backArrow,
+  cash,
+  forwardArrow,
+  lightbulb,
+  roots,
+  stopwatch,
+} from "../assets/index";
 
 import automationAnimation from "../animations/automationAnimation/data.json";
 import documentsAnimation from "../animations/documentsAnimation/data";

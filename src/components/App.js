@@ -2,13 +2,14 @@ import React, { useState } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { ThemeProvider } from "@material-ui/styles";
 
-import Header from "./ui/Header";
-import Footer from "./ui/Footer";
-import theme from "./ui/Theme";
-import LandingPage from "./LandingPage";
-import Services from "./Services";
 import CustomSoftware from "./CustomSoftware";
+import Footer from "./ui/Footer";
+import Header from "./ui/Header";
+import LandingPage from "./LandingPage";
 import MobileApps from "./MobileApps";
+import Services from "./Services";
+import theme from "./ui/Theme";
+import Websites from "./Websites";
 
 function App() {
   const [value, setValue] = useState(0);
@@ -65,7 +66,16 @@ function App() {
               />
             )}
           />
-          <Route exact path="/websites" component={() => <div>Websites</div>} />
+          <Route
+            exact
+            path="/websites"
+            render={(props) => (
+              <Websites
+                setValue={setValue}
+                setSelectedIndex={setSelectedIndex}
+              />
+            )}
+          />
           <Route
             exact
             path="/revolution"

@@ -10,11 +10,13 @@ import {
   useMediaQuery,
 } from "@material-ui/core";
 
-import forwardArrow from "../assets/forwardArrow.svg";
-import backArrow from "../assets/backArrow.svg";
-import swiss from "../assets/swissKnife.svg";
-import access from "../assets/extendAccess.svg";
-import engagement from "../assets/increaseEngagement.svg";
+import {
+  backArrow,
+  forwardArrow,
+  swiss,
+  access,
+  engagement,
+} from "../assets/index";
 
 import integrationAnimation from "../animations/integrationAnimation/data.json";
 
@@ -171,10 +173,7 @@ export default function MobileApps(props) {
           </Grid>
         </Grid>
         <Grid item md>
-          <Lottie
-            options={defaultOptions}
-            style={{ maxWidth: "20em" }}
-          />
+          <Lottie options={defaultOptions} style={{ maxWidth: "20em" }} />
         </Grid>
         <Grid item container direction="column" md>
           <Grid item>

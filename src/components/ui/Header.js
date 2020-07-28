@@ -19,7 +19,7 @@ import {
 } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
 
-import logo from "../../assets/logo.svg";
+import { logo } from "../../assets/index";
 
 const useStyles = makeStyles((theme) => ({
   toolbarMargin: {

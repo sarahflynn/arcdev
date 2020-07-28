@@ -13,13 +13,16 @@ import {
 
 import CallToAction from "./ui/CallToAction";
 
+import {
+  customSoftwareIcon,
+  mobileAppsIcon,
+  websitesIcon,
+  revolutionBackground,
+  infoBackground,
+} from "../assets/index";
+
 import animationData from "../animations/landinganimation/data";
 import ButtonArrow from "./ui/ButtonArrow";
-import customSoftwareIcon from "../assets/Custom Software Icon.svg";
-import mobileAppsIcon from "../assets/mobileIcon.svg";
-import websitesIcon from "../assets/websiteIcon.svg";
-import revolutionBackground from "../assets/repeatingBackground.svg";
-import infoBackground from "../assets/infoBackground.svg";
 
 const useStyles = makeStyles((theme) => ({
   animation: {

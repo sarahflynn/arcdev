@@ -5,8 +5,7 @@ import { makeStyles, useTheme } from "@material-ui/core/styles";
 
 import ButtonArrow from "./ButtonArrow";
 
-import background from "../../assets/background.jpg";
-import mobileBackground from "../../assets/mobileBackground.jpg";
+import { background, mobileBackground } from "../../assets/index";
 
 const useStyles = makeStyles((theme) => ({
   learnButton: {

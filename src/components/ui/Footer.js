@@ -3,10 +3,7 @@ import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import { Grid, Hidden } from "@material-ui/core";
 
-import footerAdornment from "../../assets/FooterAdornment.svg";
-import facebook from "../../assets/facebook.svg";
-import twitter from "../../assets/twitter.svg";
-import instagram from "../../assets/instagram.svg";
+import { footerAdornment, facebook, twitter, instagram } from "../../assets/index";
 
 const useStyles = makeStyles((theme) => ({
   footer: {
