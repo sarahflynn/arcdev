@@ -1,6 +1,6 @@
 import React from "react";
-import Lottie from "react-lottie";
 import { Link } from "react-router-dom";
+import Lottie from "react-lottie";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import {
   Grid,
@@ -11,25 +11,28 @@ import {
 } from "@material-ui/core";
 
 import backArrow from "../assets/backArrow.svg";
+import cash from "../assets/cash.svg";
 import forwardArrow from "../assets/forwardArrow.svg";
 import lightbulb from "../assets/bulb.svg";
-import cash from "../assets/cash.svg";
-import stopwatch from "../assets/stopwatch.svg";
 import roots from "../assets/root.svg";
+import stopwatch from "../assets/stopwatch.svg";
 
+import automationAnimation from "../animations/automationAnimation/data.json";
 import documentsAnimation from "../animations/documentsAnimation/data";
 import scaleAnimation from "../animations/scaleAnimation/data.json";
-import automationAnimation from "../animations/automationAnimation/data.json";
 import uxAnimation from "../animations/uxAnimation/data";
 
 import CallToAction from "./ui/CallToAction";
 
 const useStyles = makeStyles((theme) => ({
+  arrowContainer: {
+    marginTop: "0.5em",
+  },
   heading: {
     maxWidth: "40em",
   },
-  arrowContainer: {
-    marginTop: "0.5em",
+  itemContainer: {
+    maxWidth: "40em",
   },
   rowContainer: {
     paddingLeft: "5em",
@@ -38,9 +41,6 @@ const useStyles = makeStyles((theme) => ({
       paddingLeft: "1.5em",
       paddingRight: "1.5em",
     },
-  },
-  itemContainer: {
-    maxWidth: "40em",
   },
 }));
 
