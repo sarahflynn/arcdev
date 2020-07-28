@@ -1,31 +1,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
-import { Button, Grid, Typography, useMediaQuery } from "@material-ui/core";
+import { Button, Grid, Typography, useMediaQuery } from "@material-ui/core/Grid";
 
 import ButtonArrow from "./ui/ButtonArrow";
 import customSoftwareIcon from "../assets/Custom Software Icon.svg";
 import mobileAppsIcon from "../assets/mobileIcon.svg";
-import websiteIcon from "../assets/websiteIcon.svg";
+import websitesIcon from "../assets/websiteIcon.svg";
 
 const useStyles = makeStyles((theme) => ({
-  specialText: {
-    fontFamily: "Pacifico",
-    color: theme.palette.common.orange,
-  },
-  subtitle: {
-    marginBottom: "1em",
-  },
   icon: {
     marginLeft: "2em",
     [theme.breakpoints.down("xs")]: {
       marginLeft: 0,
-    },
-  },
-  serviceContainer: {
-    marginTop: "10em",
-    [theme.breakpoints.down("sm")]: {
-      padding: 25,
     },
   },
   learnButton: {
@@ -36,13 +23,19 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("sm")]: {
       marginBottom: "2em",
     },
-    marginTop: 5,
   },
-  service: {
-    marginBottom: "6em",
+  serviceContainer: {
+    marginTop: "10em",
+    [theme.breakpoints.down("sm")]: {
+      padding: 25,
+    },
   },
-  [theme.breakpoints.down("xs")]: {
-    marginTop: "4em",
+  specialText: {
+    fontFamily: "Pacifico",
+    color: theme.palette.common.orange,
+  },
+  subtitle: {
+    marginBottom: "1em",
   },
 }));
 
@@ -50,7 +43,6 @@ export default function Services(props) {
   const classes = useStyles();
   const theme = useTheme();
   const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
-  const { setValue, setSelectedIndex } = props;
 
   return (
     <Grid container direction="column">
@@ -62,28 +54,25 @@ export default function Services(props) {
         }}
       >
         <Typography
+          align={matchesSM ? "center" : undefined}
           variant="h2"
           gutterBottom
-          align={matchesSM ? "center" : undefined}
         >
           Services
         </Typography>
       </Grid>
-      <Grid
-        item
-        className={classes.serviceContainer}
-        style={{ marginTop: matchesSM ? "1em" : "5em" }}
-      >
-        {/*-----iOS/Android Block------*/}
+      <Grid item>
+        {/*-----iOS/Android Block-----*/}
         <Grid
           container
+          direction="row"
           justify={matchesSM ? "center" : "flex-end"}
-          className={classes.service}
+          className={classes.serviceContainer}
+          style={{ marginTop: matchesSM ? "1em" : "5em" }}
         >
           <Grid
             item
             style={{
-              marginLeft: matchesSM ? 0 : "5em",
               textAlign: matchesSM ? "center" : undefined,
               width: matchesSM ? undefined : "35em",
             }}
@@ -93,18 +82,18 @@ export default function Services(props) {
               Extend Functionality. Extend Access. Increase Engagement.
             </Typography>
             <Typography variant="subtitle1">
-              Integrate your web expereince or create a standalone app
-              {matchesSM ? " " : <br />}with either mobile platform.
+              Integrate your web experience or create a standalone app
+              {matchesSM ? null : <br />}with either mobile platform.
             </Typography>
             <Button
-              onClick={() => {
-                setValue(1);
-                setSelectedIndex(2);
-              }}
               component={Link}
               to="/mobileapps"
               variant="outlined"
               className={classes.learnButton}
+              onClick={() => {
+                props.setValue(1);
+                props.setSelectedIndex(2);
+              }}
             >
               <span style={{ marginRight: 10 }}>Learn More</span>
               <ButtonArrow
@@ -117,24 +106,26 @@ export default function Services(props) {
           <Grid item style={{ marginRight: matchesSM ? 0 : "5em" }}>
             <img
               className={classes.icon}
-              alt="mobile device icon"
+              alt="mobile phone icon"
               src={mobileAppsIcon}
-              width={"250em"}
+              width="250em"
             />
           </Grid>
         </Grid>
-        {/*-----Custom Software Block------*/}
+      </Grid>
+      <Grid item>
+        {/*-----Custom Software Block-----*/}
         <Grid
           container
+          direction="row"
           justify={matchesSM ? "center" : undefined}
-          className={classes.service}
+          className={classes.serviceContainer}
         >
           <Grid
             item
             style={{
               marginLeft: matchesSM ? 0 : "5em",
               textAlign: matchesSM ? "center" : undefined,
-              width: matchesSM ? undefined : "35em",
             }}
           >
             <Typography variant="h4">Custom Software Development</Typography>
@@ -146,14 +137,14 @@ export default function Services(props) {
               <span className={classes.specialText}>celebration.</span>
             </Typography>
             <Button
-              onClick={() => {
-                setValue(1);
-                setSelectedIndex(1);
-              }}
               component={Link}
               to="/customsoftware"
               variant="outlined"
               className={classes.learnButton}
+              onClick={() => {
+                props.setValue(1);
+                props.setSelectedIndex(1);
+              }}
             >
               <span style={{ marginRight: 10 }}>Learn More</span>
               <ButtonArrow
@@ -168,15 +159,19 @@ export default function Services(props) {
               className={classes.icon}
               alt="custom software icon"
               src={customSoftwareIcon}
-              width={"250em"}
             />
           </Grid>
         </Grid>
-        {/*-----Websites Block------*/}
+      </Grid>
+
+      <Grid item>
+        {/*-----Websites Block-----*/}
         <Grid
           container
+          direction="row"
           justify={matchesSM ? "center" : "flex-end"}
-          className={classes.service}
+          className={classes.serviceContainer}
+          style={{ marginBottom: "10em" }}
         >
           <Grid
             item
@@ -193,14 +188,14 @@ export default function Services(props) {
               Optimized for Search Engines, built for speed.
             </Typography>
             <Button
-              onClick={() => {
-                setValue(1);
-                setSelectedIndex(3);
-              }}
               component={Link}
               to="/websites"
               variant="outlined"
               className={classes.learnButton}
+              onClick={() => {
+                props.setValue(1);
+                props.setSelectedIndex(3);
+              }}
             >
               <span style={{ marginRight: 10 }}>Learn More</span>
               <ButtonArrow
@@ -214,8 +209,8 @@ export default function Services(props) {
             <img
               className={classes.icon}
               alt="website icon"
-              src={websiteIcon}
-              width={"250em"}
+              src={websitesIcon}
+              width="250em"
             />
           </Grid>
         </Grid>
