@@ -8,6 +8,7 @@ import {
   Header,
   LandingPage,
   MobileApps,
+  Revolution,
   Services,
   theme,
   Websites,
@@ -81,7 +82,7 @@ function App() {
           <Route
             exact
             path="/revolution"
-            component={() => <div>The Revolution</div>}
+            render={(props) => <Revolution setValue={setValue} />}
           />
           <Route exact path="/about" component={() => <div>About Us</div>} />
           <Route

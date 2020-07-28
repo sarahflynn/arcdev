@@ -5,6 +5,7 @@ export { default as Footer } from "./ui/Footer";
 export { default as Header } from "./ui/Header";
 export { default as LandingPage } from "./containers/LandingPage";
 export { default as MobileApps } from "./containers/MobileApps";
+export { default as Revolution } from "./containers/Revolution";
 export { default as Services } from "./containers/Services";
 export { default as theme } from "./ui/Theme";
 export { default as Websites } from "./containers/Websites";
