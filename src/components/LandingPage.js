@@ -15,10 +15,10 @@ import CallToAction from "./ui/CallToAction";
 
 import {
   customSoftwareIcon,
-  mobileAppsIcon,
-  websitesIcon,
-  revolutionBackground,
   infoBackground,
+  mobileAppsIcon,
+  revolutionBackground,
+  websitesIcon,
 } from "../assets/index";
 
 import animationData from "../animations/landinganimation/data";

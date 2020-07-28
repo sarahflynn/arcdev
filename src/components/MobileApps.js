@@ -11,11 +11,11 @@ import {
 } from "@material-ui/core";
 
 import {
+  access,
   backArrow,
+  engagement,
   forwardArrow,
   swiss,
-  access,
-  engagement,
 } from "../assets/index";
 
 import integrationAnimation from "../animations/integrationAnimation/data.json";

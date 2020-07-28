@@ -1,11 +1,24 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
-import { Grid, Hidden, IconButton, Typography, useMediaQuery } from "@material-ui/core";
+import {
+  Grid,
+  Hidden,
+  IconButton,
+  Typography,
+  useMediaQuery,
+} from "@material-ui/core";
 
 import CallToAction from "./ui/CallToAction";
 
-import { analytics, backArrow, ecommerce, forwardArrow, outreach, seo } from "../assets/index";
+import {
+  analytics,
+  backArrow,
+  ecommerce,
+  forwardArrow,
+  outreach,
+  seo,
+} from "../assets/index";
 
 const useStyles = makeStyles((theme) => ({
   heading: {
