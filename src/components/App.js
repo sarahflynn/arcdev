@@ -8,6 +8,7 @@ import theme from "./ui/Theme";
 import LandingPage from "./LandingPage";
 import Services from "./Services";
 import CustomSoftware from "./CustomSoftware";
+import MobileApps from "./MobileApps";
 
 function App() {
   const [value, setValue] = useState(0);
@@ -57,7 +58,12 @@ function App() {
           <Route
             exact
             path="/mobileapps"
-            component={() => <div>Mobile Apps</div>}
+            render={(props) => (
+              <MobileApps
+                setValue={setValue}
+                setSelectedIndex={setSelectedIndex}
+              />
+            )}
           />
           <Route exact path="/websites" component={() => <div>Websites</div>} />
           <Route
