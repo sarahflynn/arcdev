@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { ThemeProvider } from "@material-ui/styles";
 
 import {
+  About,
   CustomSoftware,
   Footer,
   Header,
@@ -84,7 +85,11 @@ function App() {
             path="/revolution"
             render={(props) => <Revolution setValue={setValue} />}
           />
-          <Route exact path="/about" component={() => <div>About Us</div>} />
+          <Route
+            exact
+            path="/about"
+            render={(props) => <About setValue={setValue} />}
+          />
           <Route
             exact
             path="/contact"

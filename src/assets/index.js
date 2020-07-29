@@ -25,6 +25,9 @@ export { default as mobileBackground } from "./img/mobileBackground.jpg";
 export { default as mockup } from "./img/mockupIcon.svg";
 export { default as outreach } from "./img/outreach.svg";
 export { default as review } from "./img/reviewIcon.svg";
+export { default as history } from "./img/history.svg";
+export { default as profile } from "./img/founder.jpg";
+export { default as puppy } from "./img/puppy.svg";
 export { default as revolutionBackground } from "./img/repeatingBackground.svg";
 export { default as roots } from "./img/root.svg";
 export { default as seo } from "./img/seo.svg";
@@ -33,6 +36,7 @@ export { default as swiss } from "./img/swissKnife.svg";
 export { default as twitter } from "./img/twitter.svg";
 export { default as vision } from "./img/vision.svg";
 export { default as websitesIcon } from "./img/websiteIcon.svg";
+export { default as yearbook } from "./img/yearbook.svg";
 
 // Animations
 export { default as automationAnimation } from "./animations/automationAnimation/data.json";

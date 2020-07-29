@@ -1,3 +1,4 @@
+export { default as About } from "./containers/About";
 export { default as ButtonArrow } from "./ui/ButtonArrow";
 export { default as CallToAction } from "./ui/CallToAction";
 export { default as CustomSoftware } from "./containers/CustomSoftware";
